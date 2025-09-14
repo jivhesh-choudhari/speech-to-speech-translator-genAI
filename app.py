@@ -20,7 +20,7 @@ load_dotenv()
 # Application Backend #
 #=====================#
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY")) or st.secrets["OPENAI_API_KEY"]
 
 class Translation(BaseModel):
     translation:str = Field(...,description='The result translation in a string format')
